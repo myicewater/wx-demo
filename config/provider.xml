@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans         
+	http://www.springframework.org/schema/beans/spring-beans.xsd         
+	http://code.alibabatech.com/schema/dubbo
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<dubbo:application name="zookeeper_privider" />
+	<dubbo:consumer timeout="100000" />
+	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />
+	<dubbo:protocol name="dubbo" port="20880"/> 
+	<dubbo:service interface="com.link.service.dubbo.demo.HelloService"
+		ref="helloService" />       <!-- 和本地bean一样实现服务 -->
+	<bean id="helloService" class="com.link.service.dubbo.demo.HelloServiceImp" />
+	
+	
+	
+	
+	
+	<dubbo:service interface="dubble.service.hello.HelloService2"
+		ref="helloService2" />       <!-- 和本地bean一样实现服务 -->
+	<bean id="helloService2" class="dubble.service.hello.HelloServiceImp2" />
+	
+<!-- 这里的address只是测试的zookeeper的地址，如果上线，按上线地址为准 -->
+<!-- 这里的group只是测试的group，上线按上线group为准 -->
+
+	<!-- <dubbo:reference id="ssoInterface" interface="com.nbank.service.service.invoke.SSOInterfaceService" group="haixu" >
+
+	</dubbo:reference>
+	<dubbo:reference id="bankUserInfoService" interface="com.nbank.service.service.invoke.UserInfoService" group="haixu" >
+	</dubbo:reference>
+	<dubbo:reference id="bankPasswordService" interface="com.nbank.service.service.invoke.PasswordService" group="haixu" >
+	</dubbo:reference>
+	
+	<dubbo:reference id="bankRegistService" interface="com.nbank.service.service.invoke.RegistService" group="haixu" >
+	</dubbo:reference>
+	
+	<dubbo:reference id="bankLoginService" interface="com.nbank.service.service.invoke.LoginService" group="haixu" >
+	</dubbo:reference> -->
+	
+</beans>

@@ -1,0 +1,4 @@
+本项目包含了微信开发的基本框架，包括支付、分享、关注等功能。还整合了dubbo，webservice等框架，提供了服务，需要配合consumer端使用。
+整合了junit测试，提高了开发效率。
+基于spring+mybatis，配合eclipse mybatisgenerator，加上遵守数据库规范的数据结构，绝对是开发的一把利器。
+项目会不断更新，不断加入新的功能
